@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2c2c2c" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>AIBO Sound Commander</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/remote.css" />
+</head>
+<body>
+  <main class="stage">
+    <div id="remote" class="remote palette-normal type-a mode-numeric" aria-label="AIBO Sound Commander">
+      <div class="remote-face">
+        <div class="top-row">
+          <button type="button" class="btn-round" data-action="on" aria-label="ON / Cancel">
+            <span class="lbl-above">ON</span>
+            <span class="glyph">C</span>
+          </button>
+          <button type="button" class="btn-round" data-action="game" aria-label="GAME">
+            <span class="lbl-above">GAME</span>
+          </button>
+          <button type="button" class="btn-round" data-action="vol" aria-label="Volume">
+            <span class="lbl-above">VOL</span>
+          </button>
+        </div>
+
+        <div class="mid-row">
+          <div class="leds" aria-hidden="true">
+            <span class="led" data-led="0"></span>
+            <span class="led" data-led="1"></span>
+            <span class="led" data-led="2"></span>
+            <span class="led" data-led="3"></span>
+          </div>
+          <div class="send-cluster">
+            <button type="button" class="btn-fs" data-action="fullscreen" aria-label="Fullscreen" title="Fullscreen">
+              <span class="fs-icon fs-enter" aria-hidden="true"></span>
+              <span class="fs-icon fs-exit" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn-send" data-action="send" aria-label="SEND">SEND</button>
+          </div>
+        </div>
+
+        <div class="keypad" role="group" aria-label="Keypad">
+          <button type="button" class="btn-key" data-key="1">
+            <span class="icon icon-star-up" aria-hidden="true"></span>
+            <span class="num">1</span>
+            <span class="note">A</span>
+          </button>
+          <button type="button" class="btn-key" data-key="2">
+            <span class="icon icon-up" aria-hidden="true"></span>
+            <span class="num">2</span>
+            <span class="note">A#</span>
+          </button>
+          <button type="button" class="btn-key" data-key="3">
+            <span class="icon icon-star-up" aria-hidden="true"></span>
+            <span class="num">3</span>
+            <span class="note">B</span>
+          </button>
+
+          <button type="button" class="btn-key" data-key="4">
+            <span class="icon icon-left" aria-hidden="true"></span>
+            <span class="num">4</span>
+            <span class="note">F#</span>
+          </button>
+          <button type="button" class="btn-key" data-key="5">
+            <span class="icon icon-stop" aria-hidden="true"></span>
+            <span class="num">5</span>
+            <span class="note">G</span>
+          </button>
+          <button type="button" class="btn-key" data-key="6">
+            <span class="icon icon-right" aria-hidden="true"></span>
+            <span class="num">6</span>
+            <span class="note">G#</span>
+          </button>
+
+          <button type="button" class="btn-key" data-key="7">
+            <span class="tag">PICKUP</span>
+            <span class="num">7</span>
+            <span class="note">D#</span>
+          </button>
+          <button type="button" class="btn-key" data-key="8">
+            <span class="icon icon-down" aria-hidden="true"></span>
+            <span class="num">8</span>
+            <span class="note">E</span>
+          </button>
+          <button type="button" class="btn-key" data-key="9">
+            <span class="tag">RELEASE</span>
+            <span class="num">9</span>
+            <span class="note">F</span>
+          </button>
+
+          <button type="button" class="btn-key" data-key="*">
+            <span class="tag">LOSE</span>
+            <span class="num">∗</span>
+            <span class="note">C</span>
+          </button>
+          <button type="button" class="btn-key" data-key="0">
+            <span class="tag">TRACK</span>
+            <span class="num">0</span>
+            <span class="note">C#</span>
+          </button>
+          <button type="button" class="btn-key" data-key="#">
+            <span class="tag">WIN</span>
+            <span class="num">#</span>
+            <span class="note">D</span>
+          </button>
+        </div>
+
+        <div class="brand" aria-hidden="true">AIBO</div>
+      </div>
+    </div>
+
+    <div class="controls-panel">
+      <div class="mode-switch" role="radiogroup" aria-label="Command type">
+        <button type="button" class="mode-btn is-active" data-type="A" title="Numeric · C5">A</button>
+        <button type="button" class="mode-btn" data-type="B" title="Numeric · C6">B</button>
+        <button type="button" class="mode-btn" data-type="L" title="Single sound · C5">L</button>
+        <button type="button" class="mode-btn" data-type="H" title="Single sound · C6">H</button>
+      </div>
+      <p id="status" class="status" aria-live="polite">A · numeric</p>
+    </div>
+  </main>
+
+  <script src="js/audio.js"></script>
+  <script src="js/commands.js"></script>
+  <script src="js/remote.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js").catch(function () {});
+    }
+  </script>
+</body>
+</html>

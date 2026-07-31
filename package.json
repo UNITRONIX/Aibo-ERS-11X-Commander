@@ -1,0 +1,18 @@
+{
+  "name": "aibo-sound-commander-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AIBO ERS-11X Sound Commander web remote",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "build:web": "node scripts/verify.mjs && node scripts/copy-www.mjs",
+    "cap:add:android": "npm run build:web && npx cap add android",
+    "cap:sync": "npm run build:web && npx cap sync android",
+    "cap:open": "npx cap open android"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/cli": "^6.1.2",
+    "@capacitor/core": "^6.1.2"
+  }
+}

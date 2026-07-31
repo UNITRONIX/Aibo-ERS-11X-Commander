@@ -1,0 +1,11 @@
+{
+  "appId": "com.aibo.soundcommander",
+  "appName": "AIBO Sound Commander",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}
