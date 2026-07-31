@@ -1,8 +1,8 @@
 # Aibo ERS-11X Commander
 
-A web **Sound Commander** remote simulator for the Sony AIBO ERS-110 / ERS-111.
+> **[Open the remote (live)](https://unitronix.github.io/Aibo-ERS-11X-Commander/)** — hosted free on GitHub Pages
 
-**Live demo (GitHub Pages):** [https://unitronix.github.io/Aibo-ERS-11X-Commander/](https://unitronix.github.io/Aibo-ERS-11X-Commander/)
+A web **Sound Commander** remote simulator for the Sony AIBO ERS-110 / ERS-111.
 
 The app synthesizes tone commands in the browser (Web Audio) and plays them through your phone or PC speaker toward AIBO’s microphone — the same idea as the original Sound Commander.
 
